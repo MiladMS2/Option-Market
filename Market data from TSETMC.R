@@ -1,4 +1,4 @@
-# install.packages("tidyverse")
+install.packages(c("tidyverse","readxl"))
 library(tidyverse)
 library(readxl)
 library(httr)
@@ -6,13 +6,13 @@ library(lubridate)
 # Get the historical market data ----------------------------------------------------
 
 # Set the dates
-Start_date <- today()
-End_date <- as_date("2023/08/15")
+Start_date <- today() %>% m2s %>% as_date()
+End_date <-  m2s("2023/08/15") %>% as_date()
 dates <- seq.Date(today(),End_date,by="-1 days")
 
 # Read the data from TSETMC
 for (date in dates) {
-  output_path <- paste("~/tmp/", gsub("/", "-", date), ".xlsx", sep = "")
+  output_path <- paste("~/Option-Market/tsetmcdata/", gsub("/", "-", date), ".xlsx", sep = "")
   
   # Check if the file exists before downloading
   if (!file.exists(output_path)) {
