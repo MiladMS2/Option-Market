@@ -1,4 +1,5 @@
 #install.packages(c("tidyverse","readxl"))
+require(tidyverse)
 library(tidyverse)
 library(readxl)
 library(httr)
@@ -7,7 +8,7 @@ library(lubridate)
 
 # Set the dates
 Start_date <- today() 
-End_date <-  "2023/08/15" %>% as_date()
+End_date <-  "2023/08/22" %>% as_date()
 dates <- seq.Date(Start_date, End_date, by = "-1 days") %>% sapply(m2s)
 
 # Read the data from TSETMC
