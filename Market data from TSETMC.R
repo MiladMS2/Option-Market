@@ -1,4 +1,4 @@
-# install.packages(c("tidyverse","readxl"))
+install.packages(c("tidyverse","readxl"))
 require(tidyverse)
 library(tidyverse)
 library(readxl)
