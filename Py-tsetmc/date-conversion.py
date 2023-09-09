@@ -31,7 +31,7 @@ def m2s(gy, gm, gd):
  return [jy, jm, jd]
 
 
-def jalali_to_gregorian(jy, jm, jd):
+def s2m(jy, jm, jd):
  jy += 1595
  days = -355668 + (365 * jy) + ((jy // 33) * 8) + (((jy % 33) + 3) // 4) + jd
  if (jm < 7):
