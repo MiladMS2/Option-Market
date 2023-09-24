@@ -9,11 +9,13 @@ import concurrent.futures
 import pandas as pd
 
 
+start_date = '1402-06-01'
+end_date = date.today().isoformat()
 # Download the datebase
 tic = time.time()
 
-start_date = (date.today() - timedelta(days=30)).isoformat()  # type: ignore
-end_date = date.today().isoformat()
+# start_date = (date.today() - timedelta(days=30)).isoformat()  # type: ignore
+# end_date = date.today().isoformat()
 download_dates = generate_jalali_date_range(start_date, end_date)
 
 
@@ -24,7 +26,7 @@ async def download_and_save_tsetmc(jalali_date: str, output_directory="./tsetmcd
 
     # Concatenate the base URL with the Jalali date
     url = f"{base_url}{jalali_date}"
-    jalali_date = jalali_date.replace("-", "")
+    # jalali_date = jalali_date.replace("-", "")
 
     # Define the output file path
     filename = os.path.join(output_directory, f"{jalali_date}.xlsx")
@@ -68,8 +70,6 @@ async def main():
 
 # ------------------------------ generating the download sequence dates--------------#
 # (date.today() - timedelta(days=180)).isoformat()  # type: ignore
-start_date = '1401-01-01'
-end_date = date.today().isoformat()
 download_dates = generate_jalali_date_range(start_date, end_date)
 
 tic = time.time()  # For measuring the runtime
