@@ -70,6 +70,11 @@ async def main():
 
 # ------------------------------ generating the download sequence dates--------------#
 # (date.today() - timedelta(days=180)).isoformat()  # type: ignore
+<<<<<<< HEAD
+=======
+start_date = '1402-01-01'
+end_date = date.today().isoformat()
+>>>>>>> efbffb527b86a78ed710d40c1f9ff140c4f45e7a
 download_dates = generate_jalali_date_range(start_date, end_date)
 
 tic = time.time()  # For measuring the runtime
